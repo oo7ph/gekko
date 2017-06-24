@@ -12,7 +12,8 @@ var crypto_currencies = [
   "ETH",
   "XDG",
   "XLM",
-  "XRP"
+  "XRP",
+  "USDT"
 ];
 
 var fiat_currencies = [
@@ -21,6 +22,10 @@ var fiat_currencies = [
   "USD",
   "JPY"
 ];
+
+var exclude_prefix = [
+  "USDT"
+]
 
 // Method to check if asset/currency is a crypto currency
 var isCrypto = function(value) {
@@ -57,18 +62,22 @@ Trader.prototype.setAssetPair = function() {
   var assetPrefix = "X";
   var currencyPrefix = "Z";
 
-  if (isFiat(this.asset))
+  if(exclude_prefix.indexOf(this.asset) > -1)
+    assetPrefix = ""
+  else if (isFiat(this.asset))
     assetPrefix = "Z";
   else if(isCrypto(this.currency)) 
     assetPrefix = "X";
 
-
-  if (isFiat(this.currency))
+  if(exclude_prefix.indexOf(this.currency) > -1)
+    currencyPrefix = ""
+  else if (isFiat(this.currency))
     currencyPrefix = "Z";
   else if(isCrypto(this.currency))
     currencyPrefix = "X";
 
   this.pair = assetPrefix + this.asset + currencyPrefix + this.currency;
+  console.log(this.pair)
 };
 
 Trader.prototype.retry = function(method, args, err) {

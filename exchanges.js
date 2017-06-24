@@ -103,7 +103,7 @@ var exchanges = [
     name: 'Kraken',
     slug: 'kraken',
     currencies: ['ETH', 'XBT', 'CAD', 'EUR', 'GBP', 'JPY', 'XRP', 'XDG', 'XLM', 'USD'],
-    assets: ['DAO', 'ETH', 'LTC', 'XBT'],
+    assets: ['DAO', 'ETH', 'LTC', 'XBT', 'USDT'],
     markets: [
       { pair: ['ETH', 'DAO'], minimalOrder: { amount: 0.01, unit: 'currency' } },
       { pair: ['XBT', 'DAO'], minimalOrder: { amount: 0.01, unit: 'currency' } },
@@ -132,7 +132,9 @@ var exchanges = [
       { pair: ['EUR', 'XBT'], minimalOrder: { amount: 0.01, unit: 'currency' } },
       { pair: ['GBP', 'XBT'], minimalOrder: { amount: 0.01, unit: 'currency' } },
       { pair: ['JPY', 'XBT'], minimalOrder: { amount: 0.01, unit: 'currency' } },
-      { pair: ['USD', 'XBT'], minimalOrder: { amount: 0.01, unit: 'currency' } }
+      { pair: ['USD', 'XBT'], minimalOrder: { amount: 0.01, unit: 'currency' } },
+
+      { pair: ['USD', 'USDT'], minimalOrder: { amount: 0.01, unit: 'currency' } }
     ],
     requires: ['key', 'secret'],
     providesHistory: false,
